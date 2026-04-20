@@ -1,80 +1,61 @@
-# SSH Terminal with M5Cardputer
+# M5Cardputer SSH Client
+
+> Pocket-sized SSH terminal for the M5Stack Cardputer.
+
+![Status](https://img.shields.io/badge/status-active-success)
+![Stack](https://img.shields.io/badge/stack-C%2B%2B-informational)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 ## Overview
-This project enables you to create a user-friendly SSH terminal using an M5Cardputer coupled with an ESP32 microcontroller. It allows remote SSH server connections and interactions utilizing the M5Cardputer's integrated keyboard and display.
 
-![IMG_3531](https://github.com/fernandofatech/M5Cardputer-SSHClient/assets/39699305/52fccfc4-7b77-4ea0-9ccf-d27374df7629)
+SSH terminal client for the M5Stack Cardputer. Manage servers from a pocket-sized device with a physical keyboard — great for on-the-go debugging.
 
-## Prerequisites
-Ensure you have the following prerequisites before starting:
+## Tech Stack
 
-- M5Cardputer device
-- ESP32 development environment
-- Arduino Integrated Development Environment (IDE)
-
-### Required Libraries
-- M5Cardputer library
-- libssh_esp32
-- libssh
-
-## Installation Guide
-
-### Setting Up the Environment
-1. **Arduino IDE Configuration**: 
-    - Open the Arduino IDE.
-    - Navigate to `File > Preferences`.
-    - Add the ESP32 package URL to "Additional Boards Manager URLs":
-      ```
-      https://dl.espressif.com/dl/package_esp32_index.json
-      ```
-
-2. **ESP32 Board Manager Installation**:
-    - Go to `Tools > Board > Boards Manager`.
-    - Search for "esp32" and install the ESP32 board manager.
-
-3. **Board Selection**:
-    - Select your M5Cardputer device under `Tools > Board`.
-
-### Libraries Installation
-1. **M5Cardputer Library**:
-    - Install via `Sketch > Include Library > M5Cardputer`.
-2. **libssh_esp32 and libssh**:
-    - Download the libraries from their respective repositories.
-    - Install using `Sketch > Include Library > Add .ZIP Library`.
-
-### Configuration
-- Configure WiFi and SSH settings in the Arduino sketch:
-  - Set your WiFi SSID and password.
-  - Define the SSH server address, username, and password.
-
-### Uploading the Sketch
-- Connect your M5Cardputer to your computer.
-- Select the appropriate COM port.
-- Upload the sketch to the M5Cardputer.
-
-## Usage
-1. **Device Initialization**:
-    - Power on your M5Cardputer.
-    - The screen will display a terminal-like interface.
-
-2. **SSH Connection**:
-    - Input the SSH server address, username, and password.
-    - Press Enter to establish the connection.
-
-3. **Interacting with SSH Server**:
-    - Use the keyboard to type and send commands to the SSH server.
+- **C++**
+- **Arduino**
+- **ESP32**
+- **M5Stack**
 
 ## Features
-- User-friendly SSH terminal interface on the M5Cardputer.
-- Keyboard support for command input.
-- Configurable WiFi and SSH server settings in the Arduino sketch.
+
+- SSH from Cardputer
+- Physical keyboard
+- Saved hosts
+
+## Getting Started
+
+```bash
+# Clone the repository
+git clone https://github.com/fernandofatech/M5Cardputer-SSHClient.git
+cd M5Cardputer-SSHClient
+
+# Open in Arduino IDE or PlatformIO and flash to the device
+```
+
+## Project Structure
+
+This project follows a modular, production-oriented layout. See the source tree for details.
+
+## Roadmap
+
+- [ ] Continuous improvements and refactors
+- [ ] Expanded test coverage
+- [ ] Documentation enhancements
 
 ## Contributing
-We welcome contributions! If you're interested in helping improve this project, feel free to submit issues or pull requests on our GitHub repository.
+
+Issues and pull requests are welcome. Please open an issue to discuss significant changes before submitting a PR.
 
 ## License
-This project is licensed under the MIT License. For more information, see the LICENSE file in this repository.
 
-## Acknowledgments
-- Special thanks to the M5Cardputer team.
-- Acknowledgment to the creators of libssh_esp32 and libssh libraries.
+Released under the MIT License. See `LICENSE` for details.
+
+## Author
+
+**Fernando Azevedo** — Senior Solution Architect
+[GitHub](https://github.com/fernandofatech) · [LinkedIn](https://www.linkedin.com/in/fernandofatech/)
+
+---
+
+_Part of [Fernando Azevedo's engineering portfolio](https://github.com/fernandofatech) — cloud architecture, serverless and developer productivity._
