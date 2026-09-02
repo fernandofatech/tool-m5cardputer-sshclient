@@ -1,0 +1,27 @@
+name: Bug
+description: Algo não funciona como deveria
+labels: ["type:bug"]
+body:
+  - type: textarea
+    id: o-que-acontece
+    attributes:
+      label: O que acontece
+      description: O comportamento observado, não a causa suposta.
+    validations: { required: true }
+  - type: textarea
+    id: esperado
+    attributes:
+      label: O que deveria acontecer
+    validations: { required: true }
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: Como reproduzir
+      placeholder: |
+        1. ...
+        2. ...
+    validations: { required: true }
+  - type: input
+    id: versao
+    attributes:
+      label: Versão ou commit
