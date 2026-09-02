@@ -1,0 +1,18 @@
+name: Funcionalidade
+description: Uma capacidade nova
+labels: ["type:feat"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Que problema isto resolve
+      description: O problema, antes da solução. Se não houver problema claro, provavelmente não é hora.
+    validations: { required: true }
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Proposta
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: O que mais foi considerado
