@@ -1,0 +1,25 @@
+# Gerado por fernandofatech/platform. Não edite aqui: mude no orquestrador e
+# rode `make rollout`, senão a alteração é sobrescrita na próxima sincronização.
+name: PR
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+concurrency:
+  group: pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: fernandofatech/platform/.github/workflows/pr-lint.yml@main
+
+  ci:
+    uses: fernandofatech/platform/.github/workflows/ci-generic.yml@main
+
+  seguranca:
+    uses: fernandofatech/platform/.github/workflows/security.yml@main
+    secrets: inherit
+    with:
+      sonar_host: ""
+      defectdojo_host: ""
