@@ -18,6 +18,13 @@ jobs:
     uses: fernando-moretes/platform/.github/workflows/ci-generic.yml@main
 
   seguranca:
+    # O chamador precisa conceder o que o workflow chamado pede: um reusable
+    # workflow nao pode escalar alem da permissao de quem o chamou, e sem isto
+    # o run falha antes de comecar.
+    permissions:
+      contents: read
+      security-events: write
+      actions: read
     uses: fernando-moretes/platform/.github/workflows/security.yml@main
     secrets: inherit
     with:
