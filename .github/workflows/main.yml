@@ -18,8 +18,8 @@ jobs:
     uses: fernando-moretes/platform/.github/workflows/security.yml@main
     secrets: inherit
     with:
-      sonar_host: ""
-      defectdojo_host: ""
+      sonar_host: "http://192.168.15.51:9000"
+      defectdojo_host: "http://192.168.15.51:8080"
 
   release:
     needs: [ci]
