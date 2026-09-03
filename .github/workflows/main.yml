@@ -13,6 +13,8 @@ concurrency:
 jobs:
   ci:
     uses: fernando-moretes/platform-workflows/.github/workflows/ci-generic.yml@main
+    with:
+      runner: '["ubuntu-latest"]'
 
   seguranca:
     # O chamador precisa conceder o que o workflow chamado pede: um reusable
@@ -25,6 +27,7 @@ jobs:
     uses: fernando-moretes/platform-workflows/.github/workflows/security.yml@main
     secrets: inherit
     with:
+      runner: '["ubuntu-latest"]'
       sonar_host: "https://sonarqube.home.lab"
       defectdojo_host: "https://defectdojo.home.lab"
 
@@ -34,5 +37,7 @@ jobs:
     # pior que não ter tag.
     if: success()
     uses: fernando-moretes/platform-workflows/.github/workflows/release.yml@main
+    with:
+      runner: '["ubuntu-latest"]'
     permissions:
       contents: write
