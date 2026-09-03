@@ -12,10 +12,10 @@ concurrency:
 
 jobs:
   lint:
-    uses: fernando-moretes/platform/.github/workflows/pr-lint.yml@main
+    uses: fernando-moretes/platform-workflows/.github/workflows/pr-lint.yml@main
 
   ci:
-    uses: fernando-moretes/platform/.github/workflows/ci-generic.yml@main
+    uses: fernando-moretes/platform-workflows/.github/workflows/ci-generic.yml@main
 
   seguranca:
     # O chamador precisa conceder o que o workflow chamado pede: um reusable
@@ -25,7 +25,7 @@ jobs:
       contents: read
       security-events: write
       actions: read
-    uses: fernando-moretes/platform/.github/workflows/security.yml@main
+    uses: fernando-moretes/platform-workflows/.github/workflows/security.yml@main
     secrets: inherit
     with:
       sonar_host: "https://sonarqube.home.lab"
