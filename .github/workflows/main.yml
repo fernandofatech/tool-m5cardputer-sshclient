@@ -28,8 +28,8 @@ jobs:
     secrets: inherit
     with:
       runner: '["ubuntu-latest"]'
-      sonar_host: "https://sonarqube.home.lab"
-      defectdojo_host: "https://defectdojo.home.lab"
+      sonar_host: ""
+      defectdojo_host: ""
 
   release:
     needs: [ci]
