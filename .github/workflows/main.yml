@@ -41,3 +41,16 @@ jobs:
       runner: '["ubuntu-latest"]'
     permissions:
       contents: write
+
+  # Ultimo job de proposito: le o run inteiro pela API e consolida CI, seguranca
+  # e release numa tabela so, com tempos e erros. `if: always()` porque relatorio
+  # de run que falhou e justamente o que mais se le.
+  relatorio:
+    needs: [ci, seguranca, release]
+    if: always()
+    permissions:
+      contents: read
+      actions: read
+    uses: fernando-moretes/platform-workflows/.github/workflows/relatorio.yml@main
+    with:
+      runner: '["ubuntu-latest"]'
