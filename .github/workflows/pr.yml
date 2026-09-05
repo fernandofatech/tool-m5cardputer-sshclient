@@ -21,17 +21,13 @@ jobs:
     with:
       runner: '["ubuntu-latest"]'
 
-  seguranca:
-    # O chamador precisa conceder o que o workflow chamado pede: um reusable
-    # workflow nao pode escalar alem da permissao de quem o chamou, e sem isto
-    # o run falha antes de comecar.
-    permissions:
-      contents: read
-      security-events: write
-      actions: read
-    uses: fernando-moretes/platform-workflows/.github/workflows/security.yml@main
-    secrets: inherit
-    with:
-      runner: '["ubuntu-latest"]'
-      sonar_host: ""
-      defectdojo_host: ""
+# A varredura de seguranca NAO roda em PR, e sai cara se voltar sem pensar: ela
+# pede `security-events: write` para subir SARIF ao code scanning, e PR do
+# dependabot recebe token somente-leitura. Como o GitHub valida o que cada
+# reusable workflow pede ao LER o arquivo — antes de qualquer `if:` —, a simples
+# presenca da chamada derrubava todo PR do dependabot em startup_failure, sem
+# rodar lint nem CI.
+#
+# O `main.yml` varre tudo depois do merge, que e onde o SARIF vira alerta
+# versionado de qualquer forma. Para trazer de volta ao PR seria preciso ou
+# separar um workflow so para PR de humano, ou abrir mao do upload do SARIF.
