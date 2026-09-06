@@ -4,7 +4,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: tool-m5cardputer-sshclient
-  description: M5Cardputer SSH client experiment for embedded, IoT and developer tooling portfolio work.
+  description: "M5Cardputer SSH client experiment for embedded, IoT and developer tooling portfolio work."
   annotations:
     github.com/project-slug: fernandofatech/tool-m5cardputer-sshclient
     backstage.io/source-location: url:https://github.com/fernandofatech/tool-m5cardputer-sshclient
@@ -17,7 +17,9 @@ metadata:
       title: SonarQube
     - url: https://defectdojo.home.lab/product?name=tool-m5cardputer-sshclient
       title: DefectDojo
-  tags: [tool, ci-generic.yml]
+  # tags so aceitam [a-z0-9-]: ci-generic.yml (ci-node.yml) tem ponto e reprovava
+  # todo componente na policy check do Backstage.
+  tags: [tool, generic]
 spec:
   type: tool
   lifecycle: production
