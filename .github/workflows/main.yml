@@ -52,5 +52,8 @@ jobs:
       contents: read
       actions: read
     uses: fernando-moretes/platform-workflows/.github/workflows/relatorio.yml@main
+    # MATTERMOST_WEBHOOK (secret de organizacao) chega por aqui; sem ele o
+    # aviso no #entregas e pulado e o resto do relatorio segue igual.
+    secrets: inherit
     with:
       runner: '["ubuntu-latest"]'
