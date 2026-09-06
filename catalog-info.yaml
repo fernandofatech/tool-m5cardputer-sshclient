@@ -1,0 +1,25 @@
+# Gerado por fernando-moretes/platform. Não edite aqui: mude no orquestrador e
+# rode `make rollout`. É o que o Backstage (backstage.home.lab) lê deste repo.
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tool-m5cardputer-sshclient
+  description: M5Cardputer SSH client experiment for embedded, IoT and developer tooling portfolio work.
+  annotations:
+    github.com/project-slug: fernandofatech/tool-m5cardputer-sshclient
+    backstage.io/source-location: url:https://github.com/fernandofatech/tool-m5cardputer-sshclient
+    sonarqube.org/project-key: tool-m5cardputer-sshclient
+  links:
+    - url: https://github.com/fernandofatech/tool-m5cardputer-sshclient/actions
+      title: Actions
+      icon: github
+    - url: https://sonarqube.home.lab/dashboard?id=tool-m5cardputer-sshclient
+      title: SonarQube
+    - url: https://defectdojo.home.lab/product?name=tool-m5cardputer-sshclient
+      title: DefectDojo
+  tags: [tool, ci-generic.yml]
+spec:
+  type: tool
+  lifecycle: production
+  owner: group:plataforma
+  system: homelab
