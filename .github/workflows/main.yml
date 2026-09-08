@@ -31,6 +31,13 @@ jobs:
       sonar_host: ""
       defectdojo_host: ""
 
+  # Documentacao: mkdocs (TechDocs) e OpenAPI. Report-only: aparece no
+  # relatorio, nao reprova.
+  docs:
+    uses: fernando-moretes/platform-workflows/.github/workflows/docs.yml@main
+    with:
+      runner: '["ubuntu-latest"]'
+
   release:
     needs: [ci]
     # Só corta versão se o CI passou: tag apontando para código quebrado é
@@ -46,7 +53,7 @@ jobs:
   # e release numa tabela so, com tempos e erros. `if: always()` porque relatorio
   # de run que falhou e justamente o que mais se le.
   relatorio:
-    needs: [ci, seguranca, release]
+    needs: [ci, seguranca, release, docs]
     if: always()
     permissions:
       contents: read
