@@ -7,8 +7,12 @@ metadata:
   description: "M5Cardputer SSH client experiment for embedded, IoT and developer tooling portfolio work."
   annotations:
     github.com/project-slug: fernandofatech/tool-m5cardputer-sshclient
-    backstage.io/source-location: url:https://github.com/fernandofatech/tool-m5cardputer-sshclient
+    # URL da arvore com barra final: e dela que o TechDocs resolve `dir:.`;
+    # sem a barra ele sobe um nivel e pede api.github.com/repos/<dono> (404).
+    backstage.io/source-location: url:https://github.com/fernandofatech/tool-m5cardputer-sshclient/tree/main/
     sonarqube.org/project-key: tool-m5cardputer-sshclient
+    # TechDocs: mkdocs.yml + docs/ do proprio repositorio (rolados pelo platform)
+    backstage.io/techdocs-ref: dir:.
   links:
     - url: https://github.com/fernandofatech/tool-m5cardputer-sshclient/actions
       title: Actions
