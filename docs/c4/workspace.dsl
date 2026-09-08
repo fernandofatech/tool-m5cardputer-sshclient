@@ -7,12 +7,16 @@
  */
 workspace "tool-m5cardputer-sshclient" "M5Cardputer SSH client experiment for embedded, IoT and developer tooling portfolio work." {
 
+    configuration {
+        scope softwaresystem
+    }
+
     model {
         usuario = person "Usuário"
         sistema = softwareSystem "tool-m5cardputer-sshclient" "M5Cardputer SSH client experiment for embedded, IoT and developer tooling portfolio work." {
             app = container "Aplicação" "Descreva o que roda aqui" "ci-generic.yml"
         }
-        usuario -> sistema.app "Usa"
+        usuario -> sistema.app "Usa" "HTTPS"
     }
 
     views {
@@ -25,9 +29,19 @@ workspace "tool-m5cardputer-sshclient" "M5Cardputer SSH client experiment for em
             autoLayout lr
         }
         styles {
-            element "Person" { shape person; background #08427b; color #ffffff }
-            element "Software System" { background #1168bd; color #ffffff }
-            element "Container" { background #438dd5; color #ffffff }
+            element "Person" {
+                shape person
+                background #08427b
+                color #ffffff
+            }
+            element "Software System" {
+                background #1168bd
+                color #ffffff
+            }
+            element "Container" {
+                background #438dd5
+                color #ffffff
+            }
         }
     }
 }
