@@ -31,3 +31,10 @@ jobs:
 # O `main.yml` varre tudo depois do merge, que e onde o SARIF vira alerta
 # versionado de qualquer forma. Para trazer de volta ao PR seria preciso ou
 # separar um workflow so para PR de humano, ou abrir mao do upload do SARIF.
+
+  # Documentacao: mkdocs (TechDocs) e OpenAPI. Report-only: aparece no
+  # relatorio, nao reprova.
+  docs:
+    uses: fernando-moretes/platform-workflows/.github/workflows/docs.yml@main
+    with:
+      runner: '["ubuntu-latest"]'
