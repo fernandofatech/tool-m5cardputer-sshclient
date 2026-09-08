@@ -1,0 +1,19 @@
+# Gerado por fernando-moretes/platform (TechDocs do Backstage). O conteudo e do
+# repositorio: escreva em docs/*.md; este arquivo so lista as paginas.
+site_name: tool-m5cardputer-sshclient
+site_description: "M5Cardputer SSH client experiment for embedded, IoT and developer tooling portfolio work."
+repo_url: https://github.com/fernandofatech/tool-m5cardputer-sshclient
+edit_uri: edit/main/docs/
+docs_dir: docs
+plugins:
+  - techdocs-core
+nav:
+  - Visão geral: index.md
+  - Arquitetura: arquitetura.md
+  - Operação: operacao.md
+  - API: api.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.superfences
