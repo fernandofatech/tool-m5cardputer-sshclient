@@ -4,6 +4,18 @@ name: main
 on:
   push:
     branches: [main]
+    # Push que so muda documentacao ou metadado nao precisa de CI, varredura,
+    # release e relatorio (5 jobs no runner do homelab). O rollout do platform
+    # ja marca [skip ci]; isto cobre edicao manual de README/docs/catalogo.
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+      - "mkdocs.yml"
+      - "catalog-info.yaml"
+      - ".github/dependabot.yml"
+      - ".github/CODEOWNERS"
+      - ".github/ISSUE_TEMPLATE/**"
+      - ".github/pull_request_template.md"
   workflow_dispatch:
 
 concurrency:
@@ -15,6 +27,7 @@ jobs:
     uses: fernando-moretes/platform-workflows/.github/workflows/ci-generic.yml@main
     with:
       runner: '["ubuntu-latest"]'
+      testes: "bloqueia"
 
   seguranca:
     # O chamador precisa conceder o que o workflow chamado pede: um reusable
@@ -46,6 +59,7 @@ jobs:
     uses: fernando-moretes/platform-workflows/.github/workflows/release.yml@main
     with:
       runner: '["ubuntu-latest"]'
+      ativo: true
     permissions:
       contents: write
 
