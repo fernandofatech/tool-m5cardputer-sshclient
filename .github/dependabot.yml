@@ -3,7 +3,12 @@ version: 2
 updates:
   - package-ecosystem: github-actions
     directory: /
-    schedule: { interval: weekly, day: monday }
-    open-pull-requests-limit: 5
+    schedule: { interval: monthly }
+    # Uma PR por ecossistema, nao uma por dependencia: cada PR do dependabot
+    # dispara PR + Vercel preview, e o merge dispara main + deploy de producao.
+    # Em set/2026 isso foi 44 % de todos os runs (1.818 de 4.136) e quase todo
+    # deploy da Vercel. Mensal e agrupado corta isso em ~20x.
+    groups: { tudo: { patterns: ["*"] } }
+    open-pull-requests-limit: 2
     commit-message: { prefix: "chore" }
     labels: ["type:chore", "deps"]
