@@ -20,6 +20,7 @@ jobs:
     uses: fernando-moretes/platform-workflows/.github/workflows/ci-generic.yml@main
     with:
       runner: '["ubuntu-latest"]'
+      testes: "bloqueia"
 
 # A varredura de seguranca NAO roda em PR, e sai cara se voltar sem pensar: ela
 # pede `security-events: write` para subir SARIF ao code scanning, e PR do
@@ -35,6 +36,9 @@ jobs:
   # Documentacao: mkdocs (TechDocs) e OpenAPI. Report-only: aparece no
   # relatorio, nao reprova.
   docs:
+    # Bump de dependencia nao muda documentacao: pular aqui poupa um job por
+    # PR do dependabot no runner do homelab.
+    if: github.actor != 'dependabot[bot]'
     uses: fernando-moretes/platform-workflows/.github/workflows/docs.yml@main
     with:
       runner: '["ubuntu-latest"]'
